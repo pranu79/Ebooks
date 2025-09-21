@@ -10,7 +10,6 @@ public class Books {
 	private String status;
 	private String photoName;
 	private String email;
-	private byte[] imageData;
 	
 	
 
@@ -47,19 +46,6 @@ public class Books {
 		this.status = status;
 		this.photoName = photoName;
 		this.email = email;
-	}
-
-	public Books(String bookname, String author, String price, String bookCategory, String status, String photoName,
-			String email, byte[] imageData) {
-		super();
-		this.bookname = bookname;
-		this.author = author;
-		this.price = price;
-		this.bookCategory = bookCategory;
-		this.status = status;
-		this.photoName = photoName;
-		this.email = email;
-		this.imageData = imageData;
 	}
 
 	public Books(int bookId, String bookname, String author, String price, String status) {
@@ -183,21 +169,6 @@ public class Books {
 		this.email = email;
 	}
 	
-
-	/**
-	 * @return the imageData
-	 */
-	public byte[] getImageData() {
-		return imageData;
-	}
-
-	/**
-	 * @param blob the imageData to set
-	 */
-	public void setImageData(byte[] imageData) {
-		this.imageData = imageData;
-	}
-
 	public Books() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -207,7 +178,7 @@ public class Books {
 	public String toString() {
 		return "Books [bookId=" + bookId + ", bookname=" + bookname + ", author=" + author + ", price=" + price
 				+ ", bookCategory=" + bookCategory + ", status=" + status + ", photoName=" + photoName + ", email="
-				+ email + ", imageData=" + imageData + "]";
+				+ email + "]";
 	}
 	
 
