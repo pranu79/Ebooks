@@ -23,6 +23,39 @@
 	background-color: #edede9;
 }
 
+.crd-ho {
+	transition: 0.3s;
+}
+.card img {
+	height: 200px;
+	width: auto;
+	max-width: 100%;
+}
+
+.btn-group-sm .btn {
+	margin: 3px 2px;
+}
+
+@media ( max-width :768px) {
+	.card-body p {
+		font-size: 0.9rem;
+	}
+	.card img {
+		height: 180px;
+	}
+}
+
+@media ( max-width :576px) {
+	.card img {
+		height: 150px;
+	}
+	.btn-group-sm {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
 #toast {
 	min-width: 300px;
 	position: fixed;
@@ -108,39 +141,42 @@ to {
 			List<Books> list2 = dao2.getAllNewBooks();
 			for (Books b : list2) {
 			%>
-			<div class="col-md-3 mb-3">
-				<div class="card crd-ho">
-					<div class="card-body text-center">
-					<img src="<%=request.getContextPath()%>/books/<%=b.getPhotoName()%>" alt="<%=b.getPhotoName()%>"
-							style="height: 200px; width: 150px;">
+			<div class="col-6 col-sm-6 col-md-3 col-lg-3">
+				<div class="card crd-ho h-100">
+					<div class="card-body text-center d-flex flex-column">
+					<img
+							src="<%=request.getContextPath()%>/books/<%=b.getPhotoName()%>"
+							alt="<%=b.getPhotoName()%>">
 						
-						<p><%=b.getBookname()%></p>
-						<p><%=b.getAuthor()%></p>
-						<p>
+						<p class="mb-1 fw-bold"><%=b.getBookname()%></p>
+						<p class="mb-1"><%=b.getAuthor()%></p>
+						<p class="mb-2">
 							Category:
 							<%=b.getBookCategory()%></p>
-						<div class="col">
+						<div class="btn-group btn-group-sm mt-auto d-flex justify-content-center flex-wrap">
+						
 							<%
 							if (u == null) {
 							%>
-							<a href="login.jsp" class="btn btn-danger btn-sm "><i
-								class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
+							<a href="login.jsp" class="btn btn-danger"><i
+								class="fa-solid fa-cart-shopping me-1"></i>
 								Add Cart</a>
 							<%
 							} else {
 							%>
 							<a
 								href="Cart?bookId=<%=b.getBookId()%>&&userId=<%=u.getId()%>&&quantity=1"
-								class="btn btn-danger btn-sm "><i
-								class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
+								class="btn btn-danger"><i
+								class="fa-solid fa-cart-shopping me-1" ></i>
 								Add Cart</a>
 							<%
 							}
 							%>
 							<a href="view_details.jsp?bookId=<%=b.getBookId()%>"
-								class="btn btn-success btn-sm">View Details</a> <a href=""
-								class="btn btn-danger btn-sm "><i
-								class="fa-solid fa-indian-rupee-sign" style="color: #f7f7f7;"></i><%=b.getPrice()%></a>
+								class="btn btn-success"><i class="fa-solid fa-eye me-1"></i>
+								View Details</a> <a href=""
+								class="btn btn-warning"><i
+								class="fa-solid fa-indian-rupee-sign me-1"></i><%=b.getPrice()%></a>
 						</div>
 					</div>
 				</div>

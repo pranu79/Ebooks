@@ -18,6 +18,40 @@
 .crd-ho:hover {
 	background-color: #edede9;
 }
+
+.crd-ho {
+	transition: 0.3s;
+}
+
+.card img {
+	height: 200px;
+	width: auto;
+	max-width: 100%;
+}
+
+.btn-group-sm .btn {
+	margin: 3px 2px;
+}
+
+@media ( max-width :768px) {
+	.card-body p {
+		font-size: 0.9rem;
+	}
+	.card img {
+		height: 180px;
+	}
+}
+
+@media ( max-width :576px) {
+	.card img {
+		height: 150px;
+	}
+	.btn-group-sm {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
 </style>
 </head>
 <body>
@@ -29,8 +63,8 @@
 
 	<!-- -start recent books -->
 
-	<div class="container-fluid">
-		<h3 class="text-center py-2">Recent Books</h3>
+	<div class="container py-4">
+		<h3 class="text-center mb-4">Recent Books</h3>
 		<div class="row">
 
 			<%
@@ -38,26 +72,26 @@
 			List<Books> list = dao.getAllRecentBooks();
 			for (Books b : list) {
 			%>
-			<div class="col-md-3 mb-3">
-				<div class="card crd-ho">
-					<div class="card-body text-center">
+			<div class="col-6 col-sm-6 col-md-3 col-lg-3">
+				<div class="card crd-ho h-100">
+					<div class="card-body text-center d-flex flex-column">
+						<img
+							src="<%=request.getContextPath()%>/books/<%=b.getPhotoName()%>"
+							alt="<%=b.getPhotoName()%>">
 
-						<img src="<%=request.getContextPath()%>/books/<%=b.getPhotoName()%>" alt="<%=b.getPhotoName()%>"
-							style="height: 200px; width: 150px;">
-
-						<p><%=b.getBookname()%></p>
-						<p><%=b.getAuthor()%></p>
+						<p class="mb-1 fw-bold"><%=b.getBookname()%></p>
+						<p class="mb-1"><%=b.getAuthor()%></p>
 						<%
 						if (b.getBookCategory().equals("Old")) {
 						%>
-						<p>
+						<p class="mb-2">
 							Category:
 							<%=b.getBookCategory()%></p>
-						<div class="col">
+						<div class="btn-group btn-group-sm mt-auto d-flex justify-content-center flex-wrap">
 							<a href="view_details.jsp?bookId=<%=b.getBookId()%>"
-								class="btn btn-success btn-sm">View Details</a> <a href=""
-								class="btn btn-danger btn-sm"><i
-								class="fa-solid fa-indian-rupee-sign" style="color: #f7f7f7;"></i><%=b.getPrice()%></a>
+								class="btn btn-success"><i class="fa-solid fa-eye me-1"></i>
+								View Details</a><a href="#" class="btn btn-warning"><i
+								class="fa-solid fa-indian-rupee-sign me-1"></i><%=b.getPrice()%></a>
 						</div>
 						<%
 						} else {
@@ -67,30 +101,27 @@
 							Category:
 							<%=b.getBookCategory()%></p>
 
-						<div class="col">
-
+						<div class="btn-group btn-group-sm mt-auto d-flex justify-content-center flex-wrap">
 							<%
 							if (u == null) {
 							%>
-							<a href="login.jsp" class="btn btn-danger btn-sm "><i
-								class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
-								Add Cart</a>
+							<a href="login.jsp" class="btn btn-danger"><i
+								class="fa-solid fa-cart-shopping me-1"></i> Add Cart</a>
 							<%
 							} else {
 							%>
 							<a
 								href="Cart?bookId=<%=b.getBookId()%>&&userId=<%=u.getId()%>&&quantity=1"
-								class="btn btn-danger btn-sm "><i
-								class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
-								Add Cart</a>
+								class="btn btn-danger"><i
+								class="fa-solid fa-cart-shopping me-1"></i> Add Cart</a>
 							<%
 							}
 							%>
 
 							<a href="view_details.jsp?bookId=<%=b.getBookId()%>"
-								class="btn btn-success  btn-sm">View Details</a> <a href=""
-								class="btn btn-danger  btn-sm "><i
-								class="fa-solid fa-indian-rupee-sign" style="color: #f7f7f7;"></i><%=b.getPrice()%></a>
+								class="btn btn-success"><i class="fa-solid fa-eye me-1"></i>
+								View Details</a> <a href="" class="btn btn-warning"><i
+								class="fa-solid fa-indian-rupee-sign me-1"></i><%=b.getPrice()%></a>
 						</div>
 						<%
 						}

@@ -34,9 +34,9 @@ body {
 			%>
 			<div class="col-md-6 p-5 border text-center bg-white">
 
-
-				<img src="<%=request.getContextPath()%>/books/<%=b.getPhotoName()%>"
-					style="height: 150px; width: 120px;" alt="book">
+				<img
+					src="<%=request.getContextPath()%>/books/<%=b.getPhotoName()%>"
+					alt="<%=b.getPhotoName()%>">
 
 				<h5>
 					Book Name:
@@ -95,25 +95,28 @@ body {
 					class="fa-solid fa-cart-shopping " style="color: #ffffff;"></i>
 					Continue Shopping</a>
 				<%
-				} else{%>
+				} else {
+				%>
 
-				<% 
-							if (u == null) {
-							%>
+				<%
+				if (u == null) {
+				%>
 				<a href="login.jsp" class="btn btn-danger "><i
 					class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i> Add
 					Cart</a>
 				<%
-							} else {
-							%>
+				} else {
+				%>
 				<a href="Cart?bookId=<%=b.getBookId()%>&&userId=<%=u.getId()%>"
 					class="btn btn-danger "><i class="fa-solid fa-cart-shopping"
 					style="color: #ffffff;"></i> Add Cart</a>
 				<%
-							}
-							%>
+				}
+				%>
 
-				<%} %>
+				<%
+				}
+				%>
 
 
 				<a href="" class="btn btn-danger "><i

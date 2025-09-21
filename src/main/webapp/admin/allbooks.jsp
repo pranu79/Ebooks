@@ -18,13 +18,14 @@ body {
 	background-color: #edede9;
 }
 
+
 .table img {
 	height: 50px;
 	width: 50px;
 	object-fit: cover;
 }
 
-@media (max-width: 768px) {
+@media ( max-width : 768px) {
 	.table th, .table td {
 		font-size: 0.85rem;
 		padding: 0.35rem;
@@ -76,45 +77,43 @@ body {
 						</thead>
 						<tbody>
 							<%
-								List<Books> booklist = (List<Books>) request.getAttribute("bookList");
-								if (booklist == null) {
-									BookDao dao = new BookDao(DBConnect.getCon());
-									booklist = dao.getAllBooks();
-								}
-								if (booklist != null && !booklist.isEmpty()) {
-									for (Books b : booklist) {
+							List<Books> booklist = (List<Books>) request.getAttribute("bookList");
+							if (booklist == null) {
+								BookDao dao = new BookDao(DBConnect.getCon());
+								booklist = dao.getAllBooks();
+							}
+							if (booklist != null && !booklist.isEmpty()) {
+								for (Books b : booklist) {
 							%>
 							<tr>
 								<th scope="row"><%=b.getBookId()%></th>
-								<td>
-									<img src="<%=request.getContextPath()%>/books/<%=b.getPhotoName()%>" 
-										alt="<%=b.getPhotoName()%>">
-								</td>
+								<td><img
+									src="<%=request.getContextPath()%>/books/<%=b.getPhotoName()%>"
+									alt="<%=b.getPhotoName()%>"
+									style="height: 200px; width: 150px;"></td>
 								<td><%=b.getBookname()%></td>
 								<td><%=b.getAuthor()%></td>
 								<td><%=b.getPrice()%></td>
 								<td><%=b.getBookCategory()%></td>
 								<td><%=b.getStatus()%></td>
-								<td class="d-flex flex-wrap justify-content-center">
-									<a href="editbook.jsp?bookId=<%=b.getBookId()%>"
-										class="btn btn-primary mx-1 my-1">
-										<i class="fa-solid fa-pen-to-square"></i> Edit
-									</a>
-									<a href="../admin/deleteBook?bookId=<%=b.getBookId()%>"
-										class="btn btn-danger mx-1 my-1">
-										<i class="fa-solid fa-trash-can"></i> Delete
-									</a>
-								</td>
+								<td><a
+									href="editbook.jsp?bookId=<%=b.getBookId()%>"
+									class="btn btn-primary mx-1 my-1"> <i
+										class="fa-solid fa-pen-to-square"></i> Edit
+								</a> <a href="../admin/deleteBook?bookId=<%=b.getBookId()%>"
+									class="btn btn-danger mx-1 my-1"> <i
+										class="fa-solid fa-trash-can"></i> Delete
+								</a></td>
 							</tr>
 							<%
-									}
-								} else {
+							}
+							} else {
 							%>
 							<tr>
 								<td colspan="8" class="text-center">No books found.</td>
 							</tr>
 							<%
-								}
+							}
 							%>
 						</tbody>
 					</table>
