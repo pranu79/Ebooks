@@ -68,24 +68,19 @@ Open browser →
 ## 📸 Screenshots
 
 🔐 Login Page
-<img width="1324" height="629" alt="image" src="https://github.com/user-attachments/assets/8d6cf9bb-98a3-4175-ba0b-1170b66df9c3" />
-
+<img width="1354" height="595" alt="image" src="https://github.com/user-attachments/assets/2b26d1b5-cb90-4aec-8c3e-d771662f208f" />
 
 🏠 Home Page
-<img width="1323" height="636" alt="image" src="https://github.com/user-attachments/assets/5a831868-6ed0-4426-9af0-e3aa3ab7c5cb" />
-
+<img width="1339" height="644" alt="image" src="https://github.com/user-attachments/assets/2f8ff5dc-7e2d-46c6-ad77-6f05b8bd63a3" />
 
 🛒 Cart Page
-<img width="1203" height="630" alt="image" src="https://github.com/user-attachments/assets/14f2d952-5671-4209-8c42-ed1998a1feaf" />
-
+<img width="1315" height="654" alt="image" src="https://github.com/user-attachments/assets/c68e9636-70f0-43f0-bfd9-ff9e8c22c955" />
 
 💳 Payment (Razorpay Integration)
-<img width="1220" height="635" alt="image" src="https://github.com/user-attachments/assets/d7b1bf8a-55f4-40f1-9fde-04e1d46932c2" />
-
+<img width="1330" height="643" alt="image" src="https://github.com/user-attachments/assets/684d9c8e-029f-4f6a-ba3d-5f9bf22f1a6e" />
 
 📦 Admin Dashboard
-<img width="1311" height="633" alt="image" src="https://github.com/user-attachments/assets/fdb09086-ec98-4311-8f5f-db1243c1d8d0" />
-
+<img width="1350" height="586" alt="image" src="https://github.com/user-attachments/assets/a820de99-d59c-40a7-8a7d-a9dfa05c74d0" />
 
 ---
 
