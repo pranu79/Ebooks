@@ -73,9 +73,9 @@
 							src="<%=request.getContextPath()%>/books/<%=b.getPhotoName()%>"
 							alt="<%=b.getPhotoName()%>">
 
-						<p><%=b.getBookname()%></p>
-						<p><%=b.getAuthor()%></p>
-						<p>
+						<p class="mb-1 fw-bold"><%=b.getBookname()%></p>
+						<p class="mb-1"><%=b.getAuthor()%></p>
+						<p class="mb-2">
 							Category:
 							<%=b.getBookCategory()%></p>
 						<div class="btn-group btn-group-sm mt-auto d-flex justify-content-center flex-wrap">
