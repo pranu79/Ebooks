@@ -21,34 +21,17 @@ body {
 	background-color: #edede9;
 }
 
-#cart {
-	position: relative;
-	top: 5px;
-}
-
-#cart {
-	color: black;
-}
-
-#cart:hover {
-	color: rgb(0, 128, 255);
-}
-
-a {
+.container a {
 	color: black;
 	text-decoration: none;
 }
 
-a:visited {
+.container a:visited {
 	color: black;
 }
 
-a:hover {
+.container a:hover {
 	color: rgb(0, 128, 255);
-}
-
-#log {
-	color: white;
 }
 </style>
 </head>
