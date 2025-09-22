@@ -145,7 +145,7 @@ to {
 				<div class="card crd-ho h-100">
 					<div class="card-body text-center d-flex flex-column">
 					<img
-							src="<%=request.getContextPath()%>/books/<%=b.getPhotoName()%>"
+							src="<%=request.getContextPath()%>/viewImg?bookId=<%=b.getBookId()%>"
 							alt="<%=b.getPhotoName()%>">
 						
 						<p class="mb-1 fw-bold"><%=b.getBookname()%></p>

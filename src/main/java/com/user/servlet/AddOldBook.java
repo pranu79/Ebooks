@@ -38,19 +38,26 @@ public class AddOldBook extends HttpServlet {
 			Part part = req.getPart("imgs");
 			String filename = part.getSubmittedFileName();
 			String email = req.getParameter("email");
+			
+			Books b = new Books(bookname, author, price, categories, status, email);
+			
+			if (part != null) {
+				b.setPhotoName(filename);
+				try (InputStream inputStream = part.getInputStream()) {
+					byte[] imageBytes = inputStream.readAllBytes();
+					b.setImageData(imageBytes);
 
-			Books b = new Books(bookname, author, price, categories, status, filename, email);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+			}
 
 			BookDao dao = new BookDao(DBConnect.getCon());
 
 			boolean f = dao.addBook(b);
 
 			if (f) {
-
-				String path = getServletContext().getRealPath("") + "books";
-				File file = new File(path);
-				part.write(path + File.separator + filename);
-
 				session.setAttribute("succMsg", "Book Added Successfully");
 				resp.sendRedirect("sellBook.jsp");
 			} else {

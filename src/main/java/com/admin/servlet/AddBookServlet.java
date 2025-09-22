@@ -34,22 +34,25 @@ public class AddBookServlet extends HttpServlet {
 			String status = req.getParameter("bstatus");
 			Part part = req.getPart("imgs");
 			String originalFileName = part.getSubmittedFileName();
-			
 
-			Books b = new Books(bookname, author, price, categories, status, originalFileName, "admin");
+			Books b = new Books(bookname, author, price, categories, status, "admin");
 
+			if (part != null) {
+				b.setPhotoName(originalFileName);
+				try (InputStream inputStream = part.getInputStream()) {
+					byte[] imageBytes = inputStream.readAllBytes();
+					b.setImageData(imageBytes);
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+			}
 			BookDao dao = new BookDao(DBConnect.getCon());
 
 			boolean f = dao.addBook(b);
 
 			if (f) {
-
-				//local code
-			String path = getServletContext().getRealPath("") + "books";
-				File folder = new File(path);
-				if (!folder.exists())
-					folder.mkdirs();
-				part.write(path + File.separator + originalFileName);
 
 				session.setAttribute("succMsg", "Book Added Successfully");
 				resp.sendRedirect(req.getContextPath() + "/admin/addbook.jsp");

@@ -21,7 +21,7 @@ public class BookDao {
 		boolean f = false;
 
 		try {
-			String sql = "insert into bookinfo (bookname,author,price,bookCategory,status,photo,email) values(?,?,?,?,?,?,?)";
+			String sql = "insert into book (bookname,author,price,bookCategory,status,photo,email,imageData) values(?,?,?,?,?,?,?,?)";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, b.getBookname());
 			ps.setString(2, b.getAuthor());
@@ -30,6 +30,7 @@ public class BookDao {
 			ps.setString(5, b.getStatus());
 			ps.setString(6, b.getPhotoName());
 			ps.setString(7, b.getEmail());
+			ps.setBytes(8, b.getImageData());
 			int i = ps.executeUpdate();
 
 			if (i == 1) {
@@ -51,7 +52,7 @@ public class BookDao {
 		Books b = null;
 
 		try {
-			String sql = "select * from bookinfo";
+			String sql = "select * from book";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
@@ -65,6 +66,7 @@ public class BookDao {
 				b.setStatus(rs.getString(6));
 				b.setPhotoName(rs.getString(7));
 				b.setEmail(rs.getString(8));
+				b.setImageData(rs.getBytes(9));
 				list.add(b);
 
 			}
@@ -83,7 +85,7 @@ public class BookDao {
 		Books b = null;
 
 		try {
-			String sql = "select * from bookinfo where bookId=?";
+			String sql = "select * from book where bookId=?";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, bookId);
 			ResultSet rs = ps.executeQuery();
@@ -98,6 +100,7 @@ public class BookDao {
 				b.setStatus(rs.getString(6));
 				b.setPhotoName(rs.getString(7));
 				b.setEmail(rs.getString(8));
+				b.setImageData(rs.getBytes(9));
 			}
 
 		} catch (Exception e) {
@@ -113,7 +116,7 @@ public class BookDao {
 		boolean f = false;
 
 		try {
-			String sql = "update bookinfo set bookname=?, author=?, price=?, status=? where bookId=? ";
+			String sql = "update book set bookname=?, author=?, price=?, status=? where bookId=? ";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, b.getBookname());
 			ps.setString(2, b.getAuthor());
@@ -139,7 +142,7 @@ public class BookDao {
 		boolean f = false;
 
 		try {
-			String sql = "delete from bookinfo where bookId=? ";
+			String sql = "delete from book where bookId=? ";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, bookId);
 			int i = ps.executeUpdate();
@@ -162,7 +165,7 @@ public class BookDao {
 		Books b = null;
 
 		try {
-			String sql = "select * from bookinfo where bookCategory=? and status=? order by bookId DESC";
+			String sql = "select * from book where bookCategory=? and status=? order by bookId DESC";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, "new");
 			ps.setString(2, "Active");
@@ -179,6 +182,7 @@ public class BookDao {
 				b.setStatus(rs.getString(6));
 				b.setPhotoName(rs.getString(7));
 				b.setEmail(rs.getString(8));
+				b.setImageData(rs.getBytes(9));
 
 				list.add(b);
 				i++;
@@ -199,7 +203,7 @@ public class BookDao {
 		Books b = null;
 
 		try {
-			String sql = "select * from bookinfo where status=? order by bookId DESC";
+			String sql = "select * from book where status=? order by bookId DESC";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, "Active");
 			ResultSet rs = ps.executeQuery();
@@ -215,6 +219,7 @@ public class BookDao {
 				b.setStatus(rs.getString(6));
 				b.setPhotoName(rs.getString(7));
 				b.setEmail(rs.getString(8));
+				b.setImageData(rs.getBytes(9));
 				list.add(b);
 				i++;
 
@@ -234,7 +239,7 @@ public class BookDao {
 		Books b = null;
 
 		try {
-			String sql = "select * from bookinfo where bookCategory=? and status=? order by bookId DESC";
+			String sql = "select * from book where bookCategory=? and status=? order by bookId DESC";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, "Old");
 			ps.setString(2, "Active");
@@ -270,7 +275,7 @@ public class BookDao {
 		Books b = null;
 
 		try {
-			String sql = "select * from bookinfo where bookCategory=? and status=? order by bookId DESC";
+			String sql = "select * from book where bookCategory=? and status=? order by bookId DESC";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, "New");
 			ps.setString(2, "Active");
@@ -304,7 +309,7 @@ public class BookDao {
 		Books b = null;
 
 		try {
-			String sql = "select * from bookinfo where status=? order by bookId DESC";
+			String sql = "select * from book where status=? order by bookId DESC";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, "Active");
 			ResultSet rs = ps.executeQuery();
@@ -337,7 +342,7 @@ public class BookDao {
 		Books b = null;
 
 		try {
-			String sql = "select * from bookinfo where bookCategory=? and status=? order by bookId DESC";
+			String sql = "select * from book where bookCategory=? and status=? order by bookId DESC";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, "Old");
 			ps.setString(2, "Active");
@@ -371,7 +376,7 @@ public class BookDao {
 		Books b = null;
 
 		try {
-			String sql = "select * from bookinfo where email=? and bookCategory=?";
+			String sql = "select * from book where email=? and bookCategory=?";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, email);
 			ps.setString(2, Category);
@@ -404,7 +409,7 @@ public class BookDao {
 		boolean f = false;
 
 		try {
-			String sql = "delete from bookinfo where bookId=? and email=? ";
+			String sql = "delete from book where bookId=? and email=? ";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, bookId);
 			ps.setString(2, email);
@@ -428,7 +433,7 @@ public class BookDao {
 		Books b = null;
 
 		try {
-			String sql = "select * from bookinfo where bookname like ? or author like ? or price like ? or bookCategory like ? and status=?";
+			String sql = "select * from book where bookname like ? or author like ? or price like ? or bookCategory like ? and status=?";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, "%" + ch + "%");
 			ps.setString(2, "%" + ch + "%");
@@ -447,6 +452,7 @@ public class BookDao {
 				b.setStatus(rs.getString(6));
 				b.setPhotoName(rs.getString(7));
 				b.setEmail(rs.getString(8));
+				b.setImageData(rs.getBytes(9));
 				list.add(b);
 
 			}

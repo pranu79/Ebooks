@@ -92,11 +92,27 @@
 				<div class="card crd-ho h-100">
 					<div class="card-body text-center d-flex flex-column">
 						<img
-							src="<%=request.getContextPath()%>/books/<%=b.getPhotoName()%>"
-							alt="<%=b.getPhotoName()%>" >
+							src="<%=request.getContextPath()%>/viewImg?bookId=<%=b.getBookId()%>"
+							alt="<%=b.getPhotoName()%>">
 						<p class="mb-1 fw-bold"><%=b.getBookname()%></p>
 						<p class="mb-1"><%=b.getAuthor()%></p>
+						<%
+						if (b.getBookCategory().equals("Old")) {
+						%>
 						<p class="mb-2">
+							Category:
+							<%=b.getBookCategory()%></p>
+						<div
+							class="btn-group btn-group-sm mt-auto d-flex justify-content-center flex-wrap">
+							<a href="view_details.jsp?bookId=<%=b.getBookId()%>"
+								class="btn btn-success"><i class="fa-solid fa-eye me-1"></i>
+								View Details</a> <a href="#" class="btn btn-warning"><i
+								class="fa-solid fa-indian-rupee-sign me-1"></i><%=b.getPrice()%></a>
+						</div>
+						<%
+						} else {
+						%>
+						<p>
 							Category:
 							<%=b.getBookCategory()%></p>
 
@@ -122,6 +138,9 @@
 								View Details</a> <a href="#" class="btn btn-warning"><i
 								class="fa-solid fa-indian-rupee-sign me-1"></i><%=b.getPrice()%></a>
 						</div>
+						<%
+						}
+						%>
 					</div>
 				</div>
 			</div>
@@ -147,7 +166,7 @@
 				<div class="card crd-ho h-100">
 					<div class="card-body text-center d-flex flex-column">
 						<img
-							src="<%=request.getContextPath()%>/books/<%=b.getPhotoName()%>"
+							src="<%=request.getContextPath()%>/viewImg?bookId=<%=b.getBookId()%>"
 							alt="<%=b.getPhotoName()%>">
 						<p class="mb-1 fw-bold"><%=b.getBookname()%></p>
 						<p class="mb-1"><%=b.getAuthor()%></p>
@@ -200,9 +219,8 @@
 				<div class="card crd-ho h-100">
 					<div class="card-body text-center d-flex flex-column">
 						<img
-							src="<%=request.getContextPath()%>/books/<%=b.getPhotoName()%>"
+							src="<%=request.getContextPath()%>/viewImg?bookId=<%=b.getBookId()%>"
 							alt="<%=b.getPhotoName()%>">
-						alt="<%=b.getPhotoName()%>" class="mb-2">
 						<p class="mb-1 fw-bold"><%=b.getBookname()%></p>
 						<p class="mb-1"><%=b.getAuthor()%></p>
 						<p class="mb-2">

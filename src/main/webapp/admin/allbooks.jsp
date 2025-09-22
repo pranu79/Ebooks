@@ -88,7 +88,7 @@ body {
 							<tr>
 								<th scope="row"><%=b.getBookId()%></th>
 								<td><img
-									src="<%=request.getContextPath()%>/books/<%=b.getPhotoName()%>"
+									src="<%=request.getContextPath()%>/viewImg?bookId=<%=b.getBookId()%>"
 									alt="<%=b.getPhotoName()%>"
 									style="height: 200px; width: 150px;"></td>
 								<td><%=b.getBookname()%></td>

@@ -35,7 +35,7 @@ body {
 			<div class="col-md-6 p-5 border text-center bg-white">
 
 				<img
-					src="<%=request.getContextPath()%>/books/<%=b.getPhotoName()%>"
+					src="<%=request.getContextPath()%>/viewImg?bookId=<%=b.getBookId()%>"
 					alt="<%=b.getPhotoName()%>">
 
 				<h5>
