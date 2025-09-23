@@ -69,7 +69,7 @@
 
 		<!-- Search Box -->
 		<form class="d-flex mx-auto search-form" action="search.jsp" method="post">
-			<input class="form-control" type="search" placeholder="Search Book" aria-label="Search" name="ch">
+			<input class="form-control" type="search" placeholder="Search Book" aria-label="Search" name="ch" required>
 			<button class="btn btn-light ms-2" type="submit">Search</button>
 		</form>
 
@@ -124,3 +124,4 @@
 </nav>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
