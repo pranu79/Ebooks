@@ -20,8 +20,8 @@ body {
 
 
 .table img {
-	height: 50px;
-	width: 50px;
+	height: 150px;
+	width:100px;
 	object-fit: cover;
     margin:0 auto;
 }
