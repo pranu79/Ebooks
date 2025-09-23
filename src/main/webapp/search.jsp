@@ -44,8 +44,7 @@
 					<div class="card-body text-center">
 						<img
 							src="<%=request.getContextPath()%>/viewImg/<%=b.getBookId()%>"
-							alt="<%=b.getPhotoName()%>" 
-							style="height: 200px; width: 150px;">
+							alt="<%=b.getPhotoName()%>" />
 						<p><%=b.getBookname()%></p>
 						<p><%=b.getAuthor()%></p>
 						<%
