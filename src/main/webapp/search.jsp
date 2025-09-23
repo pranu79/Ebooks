@@ -43,7 +43,7 @@
 				<div class="card crd-ho">
 					<div class="card-body text-center">
 						<img
-							src="<%=request.getContextPath()%>/books/<%=b.getPhotoName()%>"
+							src="<%=request.getContextPath()%>/viewImg/<%=b.getBookId()%>"
 							alt="<%=b.getPhotoName()%>" 
 							style="height: 200px; width: 150px;">
 						<p><%=b.getBookname()%></p>
