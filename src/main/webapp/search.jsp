@@ -55,9 +55,12 @@
 							<%=b.getBookCategory()%></p>
 						<div class="btn-group btn-group-sm mt-auto d-flex justify-content-center flex-wrap">
 							<a href="view_details.jsp?bookId=<%=b.getBookId()%>"
-								class="btn btn-success btn-sm">View Details</a> <a href=""
-								class="btn btn-danger btn-sm"><i
-								class="fa-solid fa-indian-rupee-sign" style="color: #f7f7f7;"></i><%=b.getPrice()%></a>
+								class="btn btn-success"><i
+								class="fa-solid fa-eye me-1"></i>
+                                View Details</a> <a href=""
+								class="btn btn-warning"><i
+								class="fa-solid fa-indian-rupee-sign me-1"></i><%=b.getPrice()%></a>
+						</div>
 						</div>
 						<%
 						} else {
@@ -72,24 +75,27 @@
 							<%
 							if (u == null) {
 							%>
-							<a href="login.jsp" class="btn btn-danger btn-sm "><i
-								class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
+							<a href="login.jsp" class="btn btn-danger"><i
+								class="fa-solid fa-cart-shopping me-1"></i>
 								Add Cart</a>
 							<%
 							} else {
 							%>
 							<a href="Cart?bookId=<%=b.getBookId()%>&&userId=<%=u.getId()%>"
-								class="btn btn-danger btn-sm "><i
-								class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
+								class="btn btn-danger"><i
+								class="fa-solid fa-cart-shopping me-1"></i>
 								Add Cart</a>
 							<%
 							}
 							%>
 
 							<a href="view_details.jsp?bookId=<%=b.getBookId()%>"
-								class="btn btn-success  btn-sm">View Details</a> <a href=""
-								class="btn btn-danger  btn-sm "><i
-								class="fa-solid fa-indian-rupee-sign" style="color: #f7f7f7;"></i><%=b.getPrice()%></a>
+								class="btn btn-success"><i
+								class="fa-solid fa-eye me-1"></i>
+                                View Details</a> <a href=""
+								class="btn btn-warning"><i
+								class="fa-solid fa-indian-rupee-sign me-1"></i><%=b.getPrice()%></a>
+						</div>
 						</div>
 						<%
 						}
