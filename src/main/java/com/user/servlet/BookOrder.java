@@ -75,6 +75,12 @@ public class BookOrder extends HttpServlet {
 		CartDao cartDao = new CartDao(DBConnect.getCon());
 		List<Cart> list = cartDao.getBookByUserId(userId);
 
+		if (list.isEmpty() || list == null) {
+			session.setAttribute("cartMsg", "Cart is Empty!");
+			response.sendRedirect("checkout.jsp");
+			return;
+		}
+
 		double total = 0.0;
 		for (Cart c : list) {
 			total += c.getPrice() * c.getQuantity();
