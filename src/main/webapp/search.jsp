@@ -30,7 +30,7 @@
 	<!-- -start recent books -->
 
 	<div class="container-fluid">
-		<h3 class="text-center py-2">All Books</h3>
+		<h3 class="text-center py-2">Recent Books</h3>
 		<div class="row">
 
 			<%
@@ -98,6 +98,14 @@
 					</div>
 				</div>
 			</div>
+			<%
+			}
+			%>
+            <%
+			if (list.isEmpty() || list == null) {
+			%>
+			<div class="alert alert-info text-center" role="alert">No books
+				found</div>
 			<%
 			}
 			%>
