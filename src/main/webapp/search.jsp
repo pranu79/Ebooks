@@ -18,6 +18,40 @@
 .crd-ho:hover {
 	background-color: #edede9;
 }
+
+.crd-ho {
+	transition: 0.3s;
+}
+
+.card img {
+	height: 200px;
+	width: auto;
+	max-width: 100%;
+}
+
+.btn-group-sm .btn {
+	margin: 3px 2px;
+}
+
+@media ( max-width :768px) {
+	.card-body p {
+		font-size: 0.9rem;
+	}
+	.card img {
+		height: 180px;
+	}
+}
+
+@media ( max-width :576px) {
+	.card img {
+		height: 150px;
+	}
+	.btn-group-sm {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
 </style>
 </head>
 <body>
