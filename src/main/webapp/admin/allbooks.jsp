@@ -23,6 +23,7 @@ body {
 	height: 50px;
 	width: 50px;
 	object-fit: cover;
+    margin:0 auto;
 }
 
 @media ( max-width : 768px) {
