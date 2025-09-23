@@ -39,9 +39,9 @@
 			List<Books> list = dao.getBookBySearch(ch);
 			for (Books b : list) {
 			%>
-			<div class="col-md-3 mb-3">
-				<div class="card crd-ho">
-					<div class="card-body text-center">
+		<div class="col-6 col-sm-6 col-md-3 col-lg-3">
+				<div class="card crd-ho h-100">
+					<div class="card-body text-center d-flex flex-column">
 						<img
 							src="<%=request.getContextPath()%>/viewImg?bookId=<%=b.getBookId()%>"
 							alt="<%=b.getPhotoName()%>" />
@@ -53,7 +53,7 @@
 						<p class="mb-2">
 							Category:
 							<%=b.getBookCategory()%></p>
-						<div class="col">
+						<div class="btn-group btn-group-sm mt-auto d-flex justify-content-center flex-wrap">
 							<a href="view_details.jsp?bookId=<%=b.getBookId()%>"
 								class="btn btn-success btn-sm">View Details</a> <a href=""
 								class="btn btn-danger btn-sm"><i
@@ -65,10 +65,10 @@
 
 						<p class="mb-2">
 							Category:
-							<%=b.getBookCategory()%></p>
+							<%=b.getBookCategory()%>
+                        </p>
 
-						<div class="col">
-
+						<div class="btn-group btn-group-sm mt-auto d-flex justify-content-center flex-wrap">
 							<%
 							if (u == null) {
 							%>
