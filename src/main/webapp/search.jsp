@@ -46,12 +46,12 @@
 							src="<%=request.getContextPath()%>/books/<%=b.getPhotoName()%>"
 							alt="<%=b.getPhotoName()%>" 
 							style="height: 200px; width: 150px;">
-						<p><%=b.getBookname()%></p>
-						<p><%=b.getAuthor()%></p>
+						<p class="mb-1 fw-bold"><%=b.getBookname()%></p>
+						<p class="mb-1"><%=b.getAuthor()%></p>
 						<%
 						if (b.getBookCategory().equals("Old")) {
 						%>
-						<p>
+						<p class="mb-2">
 							Category:
 							<%=b.getBookCategory()%></p>
 						<div class="col">
@@ -64,7 +64,7 @@
 						} else {
 						%>
 
-						<p>
+						<p class="mb-2">
 							Category:
 							<%=b.getBookCategory()%></p>
 
