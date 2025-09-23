@@ -27,6 +27,8 @@
 	height: 200px;
 	width: auto;
 	max-width: 100%;
+	margin:0 auto;
+	
 }
 
 .btn-group-sm .btn {
@@ -63,8 +65,8 @@
 
 	<!-- -start recent books -->
 
-	<div class="container py-4">
-		<h3 class="text-center mb-4">Recent Books</h3>
+	<div class="container-fluid">
+		<h3 class="text-center py-2">Recent Books</h3>
 		<div class="row">
 
 			<%

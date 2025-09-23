@@ -27,6 +27,8 @@
 	height: 200px;
 	width: auto;
 	max-width: 100%;
+	margin:0 auto;
+	
 }
 
 .btn-group-sm .btn {
@@ -73,12 +75,12 @@
 			List<Books> list = dao.getBookBySearch(ch);
 			for (Books b : list) {
 			%>
-		<div class="col-6 col-sm-6 col-md-3 col-lg-3">
+			<div class="col-6 col-sm-6 col-md-3 col-lg-3">
 				<div class="card crd-ho h-100">
 					<div class="card-body text-center d-flex flex-column">
 						<img
 							src="<%=request.getContextPath()%>/viewImg?bookId=<%=b.getBookId()%>"
-							alt="<%=b.getPhotoName()%>" />
+							alt="<%=b.getPhotoName()%>">
 						<p class="mb-1 fw-bold"><%=b.getBookname()%></p>
 						<p class="mb-1"><%=b.getAuthor()%></p>
 						<%
@@ -89,12 +91,9 @@
 							<%=b.getBookCategory()%></p>
 						<div class="btn-group btn-group-sm mt-auto d-flex justify-content-center flex-wrap">
 							<a href="view_details.jsp?bookId=<%=b.getBookId()%>"
-								class="btn btn-success"><i
-								class="fa-solid fa-eye me-1"></i>
-                                View Details</a> <a href=""
-								class="btn btn-warning"><i
+								class="btn btn-success"><i class="fa-solid fa-eye me-1"></i>
+								View Details</a><a href="#" class="btn btn-warning"><i
 								class="fa-solid fa-indian-rupee-sign me-1"></i><%=b.getPrice()%></a>
-						</div>
 						</div>
 						<%
 						} else {
@@ -102,10 +101,10 @@
 
 						<p class="mb-2">
 							Category:
-							<%=b.getBookCategory()%>
-                        </p>
+							<%=b.getBookCategory()%></p>
 
 						<div class="btn-group btn-group-sm mt-auto d-flex justify-content-center flex-wrap">
+
 							<%
 							if (u == null) {
 							%>
@@ -124,23 +123,21 @@
 							%>
 
 							<a href="view_details.jsp?bookId=<%=b.getBookId()%>"
-								class="btn btn-success"><i
-								class="fa-solid fa-eye me-1"></i>
-                                View Details</a> <a href=""
-								class="btn btn-warning"><i
+								class="btn btn-success"><i class="fa-solid fa-eye me-1"></i>
+								View Details</a><a href="#" class="btn btn-warning"><i
 								class="fa-solid fa-indian-rupee-sign me-1"></i><%=b.getPrice()%></a>
-						</div>
 						</div>
 						<%
 						}
 						%>
+						
 					</div>
 				</div>
 			</div>
 			<%
 			}
 			%>
-            <%
+			<%
 			if (list.isEmpty() || list == null) {
 			%>
 			<div class="alert alert-info text-center" role="alert">No books

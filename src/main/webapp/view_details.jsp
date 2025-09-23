@@ -17,6 +17,14 @@
 body {
 	background-color: #edede9;
 }
+
+img {
+	height: 250px;
+	object-fit: cover;
+	width: auto;
+	max-width: 100%;
+	margin: 0 auto;
+}
 </style>
 </head>
 <body>

@@ -38,6 +38,8 @@
 	height: 200px;
 	width: auto;
 	max-width: 100%;
+	margin:0 auto;
+	
 }
 
 .btn-group-sm .btn {
@@ -91,9 +93,17 @@
 			<div class="col-6 col-sm-6 col-md-3 col-lg-3">
 				<div class="card crd-ho h-100">
 					<div class="card-body text-center d-flex flex-column">
+
+						<!--local code for retrieving image from books folder  -->
+						<%-- <img
+							src="<%=request.getContextPath()%>/books/<%=b.getPhotoName()%>"
+							alt="<%=b.getPhotoName()%>"> --%>
+
+						<!--deployment code for retreving image from servlet  -->
 						<img
 							src="<%=request.getContextPath()%>/viewImg?bookId=<%=b.getBookId()%>"
 							alt="<%=b.getPhotoName()%>">
+
 						<p class="mb-1 fw-bold"><%=b.getBookname()%></p>
 						<p class="mb-1"><%=b.getAuthor()%></p>
 						<%

@@ -30,6 +30,8 @@
 	height: 200px;
 	width: auto;
 	max-width: 100%;
+	margin:0 auto;
+	
 }
 
 .btn-group-sm .btn {
