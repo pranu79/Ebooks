@@ -63,7 +63,7 @@
 						} else {
 						%>
 
-						<p>
+						<p class="mb-2">
 							Category:
 							<%=b.getBookCategory()%></p>
 
